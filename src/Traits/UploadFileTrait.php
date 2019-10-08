@@ -48,7 +48,7 @@ trait UploadFileTrait
 
         // $wh will be something like "-1200x300"
         $wh = $this->getWhForFilename($image_size_details);
-        $ext = '.' . $photo->getClientOriginalExtension();
+        $ext = '.' . 'jpg';
 
         for ($i = 1; $i <= self::$num_of_attempts_to_find_filename; $i++) {
 
