@@ -9,6 +9,7 @@ use File;
 
 trait UploadFileTrait
 {
+    # rayishandsome
     /** How many tries before we throw an Exception error */
     static $num_of_attempts_to_find_filename = 100;
 
