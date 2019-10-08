@@ -121,8 +121,11 @@ trait UploadFileTrait
             throw new \Exception("Invalid image_size_details value");
         }
 
+        // Get the public disk
+        $disk = \Storage::disk(env('PUBLIC_ASSET_STORAGE', 'public'));
+
         // save image
-        $resizedImage->save($destinationPath . '/' . $image_filename, config("blogetc.image_quality", 80));
+        $disk->put($destinationPath . '/' . $image_filename, $resizedImage->encode(config("blogetc.image_quality", 80)));
 
         // fireevent
         event(new UploadedImage($image_filename, $resizedImage, $new_blog_post, __METHOD__));
