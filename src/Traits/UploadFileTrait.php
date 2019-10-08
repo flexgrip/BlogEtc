@@ -9,7 +9,6 @@ use File;
 
 trait UploadFileTrait
 {
-    # rayishandsome
     /** How many tries before we throw an Exception error */
     static $num_of_attempts_to_find_filename = 100;
 
@@ -178,12 +177,14 @@ trait UploadFileTrait
      */
     protected function check_image_destination_path_is_writable($path)
     {
-        if (!$this->checked_blog_image_dir_is_writable) {
-            if (!is_writable($path)) {
-                throw new \RuntimeException("Image destination path is not writable ($path)");
-            }
-            $this->checked_blog_image_dir_is_writable = true;
-        }
+        $this->checked_blog_image_dir_is_writable = true;
+
+        // if (!$this->checked_blog_image_dir_is_writable) {
+        //     if (!is_writable($path)) {
+        //         throw new \RuntimeException("Image destination path is not writable ($path)");
+        //     }
+        //     $this->checked_blog_image_dir_is_writable = true;
+        // }
     }
 
     /**
