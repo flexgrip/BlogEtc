@@ -125,7 +125,7 @@ trait UploadFileTrait
         $disk = \Storage::disk(env('PUBLIC_ASSET_STORAGE', 'public'));
 
         // save image
-        $disk->put($destinationPath . '/' . $image_filename, $resizedImage->encode(config("blogetc.image_quality", 80)));
+        $disk->put($destinationPath . '/' . $image_filename, $resizedImage->encode('jpg', config("blogetc.image_quality", 80)));
 
         // fireevent
         event(new UploadedImage($image_filename, $resizedImage, $new_blog_post, __METHOD__));
