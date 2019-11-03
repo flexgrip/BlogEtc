@@ -126,6 +126,7 @@
             crossorigin="anonymous"></script>
     <script>
         if( typeof(CKEDITOR) !== "undefined" ) {
+            CKEDITOR.config.allowedContent = true;
             CKEDITOR.replace('post_body');
         }
     </script>
